@@ -1,0 +1,25 @@
+﻿<Window x:Class="DownloaderTaskClassWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DownloaderTaskClassWork"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<ListBox>
+            
+        </ListBox>-->
+        <ListBox x:Name="ListboxMain" ></ListBox>
+        <!--<ProgressBar x:Name="progressBar"></ProgressBar>-->
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Button x:Name="AddButton" Height="50" Content="+" Click="AddButton_Click"></Button>
+            <TextBox x:Name="LinkTxtB" Height="50" Background="Black" Foreground="White" FontSize="16"></TextBox>
+            <!--<Button Click="Button_Click" Height="50" Content="Wait"></Button>-->
+        </StackPanel>
+    </Grid>
+</Window>
