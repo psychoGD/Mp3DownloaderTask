@@ -33,6 +33,7 @@ namespace DownloaderTaskClassWork
             InitializeComponent();
             App.mainWindow = this;
         }
+        public static WebClient webC { get; set; }
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             var uri = new Uri(LinkTxtB.Text);
@@ -51,6 +52,7 @@ namespace DownloaderTaskClassWork
             //using (WebClient wc = new WebClient())
             //{
             //    wc.DownloadProgressChanged += wc_DownloadProgressChanged;
+            //Burada eger data yukleyirikse Data/File seklinde yuklediyimize gore olani secirik
             //    wc.DownloadDataCompleted += Wc_DownloadDataCompleted;
 
             //    //First Param is link of file
@@ -61,8 +63,21 @@ namespace DownloaderTaskClassWork
             //    //Download Link For Test https://mp3semti.com/dinle/Mabel-Matiz-Antidepresan?indir=1
             //}
         }
-        
+
+
+
         //For Test
+
+        //private void WebC_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        //{
+        //    MessageBox.Show("Test");
+        //}
+
+        //private void WebC_DownloadDataCompleted(object sender, DownloadDataCompletedEventArgs e)
+        //{
+        //    this.Close();
+        //}
+
         //private void Wc_DownloadDataCompleted(object sender, DownloadDataCompletedEventArgs e)
         //{
         //    MessageBox.Show("Music Downloaded Succesfully");

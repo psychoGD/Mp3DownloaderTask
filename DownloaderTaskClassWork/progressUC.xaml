@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="660" Width="660" Height="100">
     <StackPanel>
-        <Label Content="{Binding FileName}" FontSize="20" Height="50"></Label>
+        <Label Content="{Binding FileName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="Red" FontSize="20" Height="50"></Label>
         <ProgressBar x:Name="progressBar" Height="50"></ProgressBar>
     </StackPanel>
 </UserControl>

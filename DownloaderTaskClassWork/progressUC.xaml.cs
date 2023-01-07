@@ -22,7 +22,14 @@ namespace DownloaderTaskClassWork
     /// </summary>
     public partial class progressUC : UserControl
     {
-        private string FileName { get; set; }
+        private string fileName;
+
+        public string FileName
+        {
+            get { return fileName; }
+            set { fileName = value; }
+        }
+
         public Uri uri { get; set; }
         public string path { get; set; }
         private Task task { get; set; }
@@ -43,8 +50,8 @@ namespace DownloaderTaskClassWork
         {
             using (WebClient wc = new WebClient())
             {
-                wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-                wc.DownloadDataCompleted += Wc_DownloadDataCompleted;
+                wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(wc_DownloadProgressChanged);
+                wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
                 
                 //First Param is link of file
                 //Second Param is save adress 
@@ -53,7 +60,8 @@ namespace DownloaderTaskClassWork
                 //Download Link For Test https://mp3semti.com/dinle/Mabel-Matiz-Antidepresan?indir=1
             }
         }
-        private void Wc_DownloadDataCompleted(object sender, DownloadDataCompletedEventArgs e)
+
+        private void Wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             MessageBox.Show("Music Downloaded Succesfully");
             App.mainWindow.ListboxMain.Items.Remove(this);
@@ -63,11 +71,6 @@ namespace DownloaderTaskClassWork
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
-
-        }
-        public void PauseDownload()
-        {
-
         }
     }
 }
